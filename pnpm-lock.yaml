@@ -11,6 +11,9 @@ devDependencies:
   '@vuepress/plugin-back-to-top':
     specifier: 2.0.0-beta.66
     version: 2.0.0-beta.66
+  '@vuepress/plugin-git':
+    specifier: 2.0.0-beta.66
+    version: 2.0.0-beta.66
   '@vuepress/theme-default':
     specifier: 2.0.0-beta.66
     version: 2.0.0-beta.66
