@@ -1,3 +1,12 @@
+---
+prev:
+    text: 调度执行
+    link: /vue/schedulingExecution.md
+next:
+    text: 实现 watch
+    link: /vue/achieveWatch.md
+---
+
 &emsp;&emsp;朋友们，到这里响应式的学习就进入另一个阶段了。前面我们学习了如何实现一个简单的响应式，拆分出了 track 跟踪函数和 trigger 触发副作用函数、及特定情况下的追踪调度等，对响应式有了一个简单的系统的了解。现在，将在此基础上实现 computed 的逻辑，一同进步吧。
 
 &emsp;&emsp;我们知晓 computed 实现的目标是需要时进行缓存计算，即用到它时再进行计算+缓存。计算是有结果和过程的，结果怎么拿呢——通过计算完成后返回，即 return；而过程呢——会触发 track，甚至 trigger 函数。而且还要缓存下来，避免每次读取时都要计算，所以，针对这些情况做处理就是：

@@ -30,6 +30,10 @@ export default defineUserConfig({
             {
                 text: '实现 computed',
                 link: '/vue/achieveComputed.md'
+            },
+            {
+                text: '实现 watch',
+                link: '/vue/achieveWatch.md'
             }
         ]
     })
