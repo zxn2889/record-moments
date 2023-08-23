@@ -34,6 +34,10 @@ export default defineUserConfig({
             {
                 text: '实现 watch',
                 link: '/vue/achieveWatch.md'
+            },
+            {
+                text: '实现 watch 函数的立即执行与回调的调度执行',
+                link: '/vue/achieveWatchSomeOptions.md'
             }
         ]
     })

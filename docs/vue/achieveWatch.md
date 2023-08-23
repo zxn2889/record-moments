@@ -2,6 +2,9 @@
 prev:
     text: 实现 computed
     link: /vue/achieveComputed.md
+next:
+    text: 实现 watch 函数的立即执行与回调的调度执行
+    link: /vue/achieveWatchSomeOptions.md
 ---
 
 朋友们，学习了怎么实现 computed 后，视线开阔了一些吧。我也是的。那我们接着学习怎么实现 watch 吧。天将降大任于斯人也，共勉。
