@@ -1,10 +1,10 @@
 ---
 prev:
     text: 调度执行
-    link: /vue/schedulingExecution.md
+    link: /vue/chapter-4/schedulingExecution.md
 next:
     text: 实现 watch
-    link: /vue/achieveWatch.md
+    link: /vue/chapter-4/achieveWatch.md
 ---
 
 &emsp;&emsp;朋友们，到这里响应式的学习就进入另一个阶段了。前面我们学习了如何实现一个简单的响应式，拆分出了 track 跟踪函数和 trigger 触发副作用函数、及特定情况下的追踪调度等，对响应式有了一个简单的系统的了解。现在，将在此基础上实现 computed 的逻辑，一同进步吧。

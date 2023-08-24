@@ -1,7 +1,7 @@
 ---
 prev:
     text: 实现 watch
-    link: /vue/achieveWatch.md
+    link: /vue/chapter-4/achieveWatch.md
 ---
 
 朋友们，上一节我们完成了 watch 的基本实现，现在我们学习如何让它立即执行与实现回调的调度执行。

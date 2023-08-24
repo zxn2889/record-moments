@@ -1,10 +1,10 @@
 ---
 prev:
     text: effect嵌套实现过程
-    link: /vue/effectNest.md
+    link: /vue/chapter-4/effectNest.md
 next:
     text: 调度执行
-    link: /vue/schedulingExecution.md
+    link: /vue/chapter-4/schedulingExecution.md
 ---
 
 问题：如果出现了自增类操作怎么办？有什么影响？要怎么解决？

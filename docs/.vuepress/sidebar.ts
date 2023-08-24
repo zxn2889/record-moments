@@ -6,35 +6,35 @@ interface routeItem {
 const sidebar: Array<routeItem> = [
     {
         text: '响应式实现过程',
-        link: '/vue/proxyAchieve.md'
+        link: '/vue/chapter-4/proxyAchieve.md'
     },
     {
         text: 'effect嵌套实现过程',
-        link: '/vue/effectNest.md'
+        link: '/vue/chapter-4/effectNest.md'
     },
     {
         text: '避免无限递归',
-        link: '/vue/solvingInfiniteRecursion.md'
+        link: '/vue/chapter-4/solvingInfiniteRecursion.md'
     },
     {
         text: '调度执行',
-        link: '/vue/schedulingExecution.md'
+        link: '/vue/chapter-4/schedulingExecution.md'
     },
     {
         text: '实现 computed',
-        link: '/vue/achieveComputed.md'
+        link: '/vue/chapter-4/achieveComputed.md'
     },
     {
         text: '实现 watch',
-        link: '/vue/achieveWatch.md'
+        link: '/vue/chapter-4/achieveWatch.md'
     },
     {
         text: '实现 watch 函数的立即执行与回调的调度执行',
-        link: '/vue/achieveWatchSomeOptions.md'
+        link: '/vue/chapter-4/achieveWatchSomeOptions.md'
     },
     {
         text: '过期的副作用',
-        link: '/vue/expiredSideEffects.md'
+        link: '/vue/chapter-4/expiredSideEffects.md'
     }
 ]
 

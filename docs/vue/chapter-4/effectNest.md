@@ -1,10 +1,10 @@
 ---
 prev:
     text: 响应式实现过程
-    link: /vue/proxyAchieve.md
+    link: /vue/chapter-4/proxyAchieve.md
 next:
     text: 避免无限递归
-    link: /vue/solvingInfiniteRecursion.md
+    link: /vue/chapter-4/solvingInfiniteRecursion.md
 ---
 
 我们知道组件是能嵌套的，那 effect 能不能嵌套？如果能嵌套要怎么办？

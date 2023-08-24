@@ -1,7 +1,7 @@
 ---
 next:
     text: effect嵌套实现过程
-    link: /vue/effectNest.md
+    link: /vue/chapter-4/effectNest.md
 ---
 
 #### 基础的、简单的响应式实现

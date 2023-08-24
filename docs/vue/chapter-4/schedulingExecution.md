@@ -1,10 +1,10 @@
 ---
 prev:
     text: 避免无限递归
-    link: /vue/solvingInfiniteRecursion.md
+    link: /vue/chapter-4/solvingInfiniteRecursion.md
 next:
     text: 实现 computed
-    link: /vue/achieveComputed.md
+    link: /vue/chapter-4/achieveComputed.md
 ---
 
 问题：如何在不更改代码位置的情况下，让执行顺序发生改变？
