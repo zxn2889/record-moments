@@ -3,7 +3,7 @@ interface routeItem {
     link: string
 }
 
-const sidebar: Array<routeItem> = [
+const chapterIV: Array<routeItem> = [
     {
         text: '响应式实现过程',
         link: '/vue/chapter-4/proxyAchieve.md'
@@ -36,6 +36,18 @@ const sidebar: Array<routeItem> = [
         text: '过期的副作用',
         link: '/vue/chapter-4/expiredSideEffects.md'
     }
+]
+
+const chapterV: Array<routeItem> = [
+    {
+        text: '更近一步的 Proxy',
+        link: '/vue/chapter-5/furtherAgency.md'
+    }
+]
+
+const sidebar: Array<routeItem> = [
+    ...chapterIV,
+    ...chapterV
 ]
 
 export default sidebar
