@@ -2,6 +2,9 @@
 prev:
     text: 实现 watch 函数的立即执行与回调的调度执行
     link: /vue/chapter-4/achieveWatchSomeOptions.md
+next:
+    text: 更近一步的 Proxy
+    link: /vue/chapter-5/furtherAgency.md
 ---
 
 朋友们，我们已经学习了 watch 的基本实现原理，及响应的 options 选项。现在我们在此基础上再学习一些多次修改后触发执行副作用有先有后的情况。例如：
