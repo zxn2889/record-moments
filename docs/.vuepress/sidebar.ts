@@ -42,6 +42,10 @@ const chapterV: Array<routeItem> = [
     {
         text: '更近一步的 Proxy',
         link: '/vue/chapter-5/furtherAgency.md'
+    },
+    {
+        text: '合理的触发响应',
+        link: '/vue/chapter-5/reasonableTriggeringResponse.md'
     }
 ]
 

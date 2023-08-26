@@ -111,6 +111,7 @@ p.nav = 2
 
 看着挺正常，但是 nav 没打印。所以，set 函数内还需加逻辑。
 
+***
 头脑风暴：
 - A：嗯？不对。
 - B：怎么不对？
@@ -121,6 +122,34 @@ p.nav = 2
 实际上，Proxy 代理中有一个 ownKeys 方法，用于获取自身的属性，且它的执行顺序要更靠前一点。你问我怎么知道的，当然是打印过后才知道的啊。
 
 ![图片](/img/23.png)
+***
+
+**补充：**  
+朋友们，双横线之间的部分是之前的想法，部分是对的，但有些也是错误的，这里做些延伸：
+1. 在 set 没有触发时，ownKeys 执行在前；
+2. 在 set 触发时，ownKeys 执行在后；
+3. ownKeys 执行在 get 前；
+4. delete 在 ownKeys 前，且不会触发 get、set
+
+重新打印的执行顺序说明，和 set 钩子内代码修改：
+
+![图片](/img/26.png)
+
+```js
+const handler = {
+    set(target, prop, nVal, receiver) {
+        const type = Object.prototype.hasOwnProperty.call(target, prop)
+        const res = Reflect.set(target, prop, nVal, receiver)
+        trigger(target, prop, type)
+        return res
+    }
+}
+// 其他代码省略
+```
+
+::: tip
+注意，这里 trigger 是要放在 Reflect.set 后的，这是因为要将 this 指向自身，否则就会带来一些问题，如代理的对象值改变但却打印的还是旧值；和在 trigger 内部判断 type 将会是一直为 true 的状态。
+:::
 
 但是 ownKeys 有一个问题，就是只能拿到目标对象，拿不到新增的属性，而新增的属性又要符合设计规范，这里只能使用 Symbol。但是要注意，唯一值 Symbol 是要追踪的，所以不能在 ownKeys 方法里定义，即：
 
@@ -362,4 +391,142 @@ effect(() => {
 p.nav = 2
 p.foo = 3
 ```
+:::
+
+**补充：**
+
+最终代码如下：
+
+::: details 详情代码
+```js
+// 响应式的基本实现
+const data = { 
+    foo: 1,
+    get bar() {
+        return this.foo
+    }
+}
+
+let activeEffect
+let effectStack = []
+function effect(fn, options = {}) {
+    const effectFn = () => {
+        cleanup(effectFn)
+        activeEffect = effectFn // 将要执行的副作用函数指向 effectFn
+        effectStack.push(activeEffect) // 压栈
+        const fnRes = fn() // 当前的副作用函数里保留了要执行的入参指向并执行
+        effectStack.pop() // 弹栈
+        activeEffect = effectStack.at(-1)
+        return fnRes
+    }
+    effectFn.options = options
+    effectFn.deps = [] // 存储依赖集合
+    if (!options.lazy) { // lazy 不为真时立即执行
+        effectFn()
+    }
+    return effectFn
+}
+
+const cleanup = (effectFn) => {
+    for (let i = 0; i < effectFn.deps.length; i++) {
+        const deps = effectFn.deps[i];
+        deps.delete(effectFn)
+    }
+    effectFn.deps.length = 0
+}
+
+let bucket = new WeakMap()
+let ITERATE_KEY = Symbol()
+
+const handler = {
+    get(target, prop, receiver) {
+        track(target, prop)
+        return Reflect.get(target, prop, receiver)
+    },
+    set(target, prop, nVal, receiver) {
+        // 判断当前属性是新增/修改
+        const type = Object.prototype.hasOwnProperty.call(target, prop) ? 'SET' : 'ADD'
+        const res = Reflect.set(target, prop, nVal, receiver)
+        trigger(target, prop, type)
+        return res
+    },
+    has(target, prop) {
+        track(target, prop)
+        return Reflect.has(target, prop)
+    },
+    deleteProperty(target, prop) {
+        // 判断是否是自身的属性，而不是继承来的属性
+        const privateProp = Object.prototype.hasOwnProperty.call(target, prop)
+        const res = Reflect.deleteProperty(target, prop)
+        if (privateProp && res) {
+            // 判断是自身的属性，且删除成功后，才触发更新
+            trigger(target, prop, 'DELETE')
+        }
+        return res
+    },
+    ownKeys(target) {
+        track(target, ITERATE_KEY)
+        return Reflect.ownKeys(target)
+    }
+}
+
+const track = (target, prop) => {
+    if (!activeEffect) return target[prop]
+    let depsMap = bucket.get(target)
+    if (!depsMap) {
+        bucket.set(target, (depsMap = new Map()))
+    }
+    let deps = depsMap.get(prop)
+    if (!deps) {
+        depsMap.set(prop, (deps = new Set()))
+    }
+    deps.add(activeEffect)
+    activeEffect.deps.push(deps)
+}
+
+const trigger = (target, prop, type) => {
+    const depsMap = bucket.get(target)
+    if (!depsMap) return
+    const deps = depsMap.get(prop)
+    const ITEARR = depsMap.get(ITERATE_KEY)
+    const effectsToRun = new Set()
+    const addEffectFn = (arr) => {
+        arr && arr.forEach(effectFn => {
+            if (effectFn !== activeEffect) {
+                effectsToRun.add(effectFn)
+            }
+        })
+    }
+    addEffectFn(deps)
+    if (type === 'ADD' || type === 'DELETE') {
+        addEffectFn(ITEARR)
+    }
+    effectsToRun.forEach(effectFn => {
+        if (effectFn.options.scheduler) {
+            effectFn.options.scheduler(effectFn)
+        } else {
+            effectFn()
+        }
+    })
+}
+
+const p = new Proxy(data, handler)
+
+effect(() => {
+    for(const k in p) {
+        console.log('k:', k, ', value: ', p[k])
+    }
+    console.log('-------');
+})
+
+p.nav = 2
+p.foo = 3
+delete p.foo
+```
+:::
+
+::: tip 我想说的话
+这篇文章在一阵艰难中终于告一段落了。写它很不容易，记录了我个人的所有的在模拟过程当中的感悟，且还有一些我个人很反感的一些数字背景。但是有问题就改，至于我为什么是补充而不是直接推翻之前的记录，就是想让更多的小伙伴能够感受当中的一些纠结，进而能加深领悟。如果不想的话——嗯，您也都看到最后了，看最后的详情代码也是好的。
+
+最后，祝大家一切顺利！
 :::
