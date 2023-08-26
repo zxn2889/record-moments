@@ -2,6 +2,9 @@
 prev:
     text: 过期的副作用
     link: /vue/chapter-4/expiredSideEffects.md
+next:
+    text: 合理的触发响应
+    link: /vue/chapter-5/reasonableTriggeringResponse.md
 ---
 
 朋友们，完成之前的阅读或者是练习之后，相信基本上对响应式的实现有了一些基本的理解。那么，我们将更进一步的探讨响应式的实现，如：Reflect 与响应的关联、in 关键字的读取等。学习是枯燥的，但也会培养我们思考与阅读的能力，见识到他人看不到的美。与诸君共勉。

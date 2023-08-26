@@ -5,24 +5,14 @@ let ITERATE_KEY = Symbol()
 
 const handler = {
     get(target, prop, receiver) {
-        if (prop === 'raw') {
-            return target
-        }
         track(target, prop)
         return Reflect.get(target, prop, receiver)
     },
     set(target, prop, nVal, receiver) {
-        console.log('target', target);
-        console.log('receiver', receiver);
-        const oVal = target[prop]
         // 判断当前属性是新增/修改
         const type = Object.prototype.hasOwnProperty.call(target, prop) ? 'SET' : 'ADD'
         const res = Reflect.set(target, prop, nVal, receiver)
-        if (target === receiver.raw) {
-            if (oVal !== nVal && !(isNaN(oVal) && isNaN(nVal))) {
-                trigger(target, prop, type)
-            }
-        }
+        trigger(target, prop, type)
         return res
     },
     has(target, prop) {
