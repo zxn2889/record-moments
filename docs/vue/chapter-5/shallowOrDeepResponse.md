@@ -2,6 +2,9 @@
 prev:
     text: 合理的触发响应
     link: /vue/chapter-5/reasonableTriggeringResponse.md
+next:
+    text: 只读与浅只读
+    link: /vue/chapter-5/shallowOrDeepReadOnly.md
 ---
 
 朋友们，学习了上一节之后，我们来学习点轻松的，如何实现浅响应和深响应。

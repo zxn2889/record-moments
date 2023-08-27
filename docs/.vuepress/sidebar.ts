@@ -50,6 +50,10 @@ const chapterV: Array<routeItem> = [
     {
         text: '浅响应与深响应',
         link: '/vue/chapter-5/shallowOrDeepResponse.md'
+    },
+    {
+        text: '只读与浅只读',
+        link: '/vue/chapter-5/shallowOrDeepReadOnly.md'
     }
 ]
 

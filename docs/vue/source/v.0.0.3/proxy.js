@@ -11,7 +11,7 @@ const RECORD = {
 
 const RECEIVER_TARGET = 'raw'
 
-const handler = (isShallow = false, isReadOnly = false) => ({
+const handler = (isShallow = true) => ({
     get(target, prop, receiver) {
         // 将 receiver.raw 指向目标对象
         if (prop === RECEIVER_TARGET) {
@@ -19,9 +19,7 @@ const handler = (isShallow = false, isReadOnly = false) => ({
         }
 
         // 跟踪依赖
-        if (!isReadOnly) {
-            track(target, prop)
-        }
+        track(target, prop)
 
         const res = Reflect.get(target, prop, receiver)
 
@@ -32,18 +30,13 @@ const handler = (isShallow = false, isReadOnly = false) => ({
 
         // 当前对象类型为 object，且不为空时递归建立深响应
         if (typeof res === 'object' && res !== null) {
-            return !isReadOnly ? reactive(res) : readOnly(res, isShallow, isReadOnly)
+            return createReactive(res)
         }
 
         // 其他情况直接 return res
         return res
     },
     set(target, prop, nVal, receiver) {
-        if (isReadOnly) {
-            console.warn('当前为只读对象，不可编辑！')
-            return false
-        }
-
         const oVal = target[prop]
 
         // 判断当前操作类型
@@ -69,14 +62,9 @@ const handler = (isShallow = false, isReadOnly = false) => ({
         return Reflect.has(target, prop)
     },
     deleteProperty(target, prop) {
-        if (isReadOnly) {
-            console.warn('当前为只读对象，不可删除！')
-            return false
-        }
-        
         // 判断是否为自身的属性，而不是继承属性
         const privateProp = Object.prototype.hasOwnProperty.call(target, prop)
-        
+
         const res = Reflect.deleteProperty(target, prop)
  
         // 是自身的属性，且删除成功，才触发更新
@@ -156,10 +144,8 @@ const trigger = (target, prop, type) => {
 }
 
 // 实现响应式逻辑
-// isShallow 是否为浅响应式 false-不是 true-是
-// isReadOnly 是否为只读 false-不是 true-是
-function createReactive(data, isShallow = false, isReadOnly = false) {
-    return new Proxy(data, handler(isShallow, isReadOnly))
+function createReactive(data, isShallow = true) {
+    return new Proxy(data, handler(isShallow))
 }
 
 // 传递给外部的深响应式
@@ -169,23 +155,11 @@ function reactive(data) {
 
 // 传递给外部的浅响应式
 function shallowReactive(data) {
-    return createReactive(data, true)
-}
-
-// 传递给外部的深只读
-function readOnly(data) {
-    return createReactive(data, false, true)
-}
-
-// 传递给外部的浅只读
-function shallowReadOnly(data) {
-    return createReactive(data, true, true)
+    return createReactive(data, false)
 }
 
 export {
     reactive,
     shallowReactive,
-    readOnly,
-    shallowReadOnly,
     effect
 }
