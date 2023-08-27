@@ -2,6 +2,9 @@
 prev:
     text: 更近一步的 Proxy
     link: /vue/chapter-5/furtherAgency.md
+next:
+    text: 浅响应与深响应
+    link: /vue/chapter-5/shallowOrDeepResponse.md
 ---
 
 朋友们，上一节我们学习了 Proxy 与 Reflect 的关系，以及增删改查的情况。我提出了一个问题——没有必要再增加各类标识，但综合接下来的学习看，还是有必要的，所以做了必要的补充与更新。然后，我们就在这些基础上，学习如何合理的触发响应。

@@ -46,6 +46,10 @@ const chapterV: Array<routeItem> = [
     {
         text: '合理的触发响应',
         link: '/vue/chapter-5/reasonableTriggeringResponse.md'
+    },
+    {
+        text: '浅响应与深响应',
+        link: '/vue/chapter-5/shallowOrDeepResponse.md'
     }
 ]
 
