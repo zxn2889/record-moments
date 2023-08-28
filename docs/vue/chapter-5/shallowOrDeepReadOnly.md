@@ -2,6 +2,9 @@
 prev:
     text: 浅响应与深响应
     link: /vue/chapter-5/shallowOrDeepResponse.md
+next:
+    text: 数组的代理
+    link: /vue/chapter-5/achieveArrayProxy.md
 ---
 
 朋友们，上节我们学习了如何实现深响应和浅响应，这节我们学习如何实现只读和浅只读。

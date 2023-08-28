@@ -1,16 +1,12 @@
 import { reactive, shallowReactive, readOnly, shallowReadOnly, effect } from './proxy.js'
 
 // 响应式的基本实现
-const data = { foo: 1, bar: { cat: '小黑' } }
+const data = ['foo']
 
-const p = shallowReadOnly(data)
+const p = reactive(data)
 
 effect(() => {
-    console.log(p.bar.cat);
-    console.log('-----------');
+    console.log('k-value:', p[0]);
 })
 
-// p.bar.cat = '小黑战纪'
-// p.foo++
-delete p.foo
-// p.banana = '香蕉'
+p[0] = 'heihei'

@@ -10,15 +10,17 @@ const RECORD = {
 }
 
 const RECEIVER_TARGET = 'raw'
+const ARRAY_LENGTH = 'length'
 
 const handler = (isShallow = false, isReadOnly = false) => ({
     get(target, prop, receiver) {
+        console.log('get:', prop);
         // 将 receiver.raw 指向目标对象
         if (prop === RECEIVER_TARGET) {
             return target
         }
 
-        // 跟踪依赖
+        // 非只读属性时跟踪依赖
         if (!isReadOnly) {
             track(target, prop)
         }
@@ -39,6 +41,7 @@ const handler = (isShallow = false, isReadOnly = false) => ({
         return res
     },
     set(target, prop, nVal, receiver) {
+        console.log('set:', prop);
         if (isReadOnly) {
             console.warn('当前为只读对象，不可编辑！')
             return false
@@ -47,7 +50,9 @@ const handler = (isShallow = false, isReadOnly = false) => ({
         const oVal = target[prop]
 
         // 判断当前操作类型
-        const type = Object.prototype.hasOwnProperty.call(target, prop) ? RECORD.SET : RECORD.ADD
+        const type = Array.isArray(target) 
+            ? Number(prop) > (target[ARRAY_LENGTH] - 1) ? RECORD.ADD : RECORD.SET 
+            : Object.prototype.hasOwnProperty.call(target, prop) ? RECORD.SET : RECORD.ADD
 
         const res = Reflect.set(target, prop, nVal, receiver)
 
@@ -56,7 +61,7 @@ const handler = (isShallow = false, isReadOnly = false) => ({
 
             // 判断新/旧值是否不等，且其中任一值不为 NaN 是触发更新
             if (oVal !== nVal && (oVal === oVal || nVal === nVal)) {
-                trigger(target, prop, type)
+                trigger(target, prop, type, nVal)
             }
         }
 
@@ -88,8 +93,9 @@ const handler = (isShallow = false, isReadOnly = false) => ({
         return res
     },
     ownKeys(target) {
-        // 追踪自身新增属性，因无法读取 key 值，所以用唯一值 Symbol 替代，set 中针对此情况特殊处理
-        track(target, ITERATE_KEY)
+        // 追踪目标对象本身循环情况，根据其类型不同，关联不同的依赖桶
+        const prop = Array.isArray(target) ? ARRAY_LENGTH : ITERATE_KEY
+        track(target, prop)
         return Reflect.ownKeys(target)
     }
 })
@@ -117,15 +123,15 @@ const track = (target, prop) => {
     activeEffect.deps.push(deps)
 }
 
-const trigger = (target, prop, type) => {
+const trigger = (target, prop, type, nVal) => {
+    console.log('type', type);
     // 获取目标对象 Map 集合
     const depsMap = bucket.get(target)
     if (!depsMap) return
 
     // 获取目标属性 Set 集合——依赖收集器
     const deps = depsMap.get(prop)
-    const ITEARR = depsMap.get(ITERATE_KEY)
-
+    
     // 创建有效副作用更新器并存入桶中
     const effectsToRun = new Set()
     const addEffectFn = (arr) => {
@@ -136,11 +142,28 @@ const trigger = (target, prop, type) => {
         })
     }
     addEffectFn(deps)
-
-    // 稀有操作类型时，收集特殊依赖并存入桶中
-    // 注意 DEL 会触发 ownKeys
+    
+    // 稀有操作类型时，收集特殊依赖（Symbol相关）并存入桶中
     if (type === RECORD.ADD || type === RECORD.DEL) {
+        const ITEARR = depsMap.get(ITERATE_KEY)
         addEffectFn(ITEARR)
+    }
+
+    // 当目标对象为数组且为新增时，收集特殊依赖（length相关）并存入桶中
+    if (type === RECORD.ADD && Array.isArray(target)) {
+        console.log('01');
+        const lenDeps = depsMap.get(ARRAY_LENGTH)
+        addEffectFn(lenDeps)
+    }
+
+    // 当目标对象是数组且修改了 length 长度后，循环 Map 结构，更新相关依赖
+    if (Array.isArray(target) && prop === ARRAY_LENGTH) {
+        console.log('02');
+        depsMap.forEach((effects, i) => {
+            if (i >= nVal) {
+                addEffectFn(effects)
+            }
+        })
     }
 
     // 将有效的依赖收集器遍历执行

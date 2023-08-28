@@ -54,6 +54,10 @@ const chapterV: Array<routeItem> = [
     {
         text: '只读与浅只读',
         link: '/vue/chapter-5/shallowOrDeepReadOnly.md'
+    },
+    {
+        text: '数组的代理',
+        link: '/vue/chapter-5/achieveArrayProxy.md'
     }
 ]
 
