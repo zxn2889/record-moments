@@ -61,9 +61,17 @@ const chapterV: Array<routeItem> = [
     }
 ]
 
+const chapterVI: Array<routeItem> = [
+    {
+        text: '原始值的响应方案',
+        link: '/vue/chapter-6/achieveOriganValueProxy.md'
+    }
+]
+
 const sidebar: Array<routeItem> = [
     ...chapterIV,
-    ...chapterV
+    ...chapterV,
+    ...chapterVI
 ]
 
 export default sidebar

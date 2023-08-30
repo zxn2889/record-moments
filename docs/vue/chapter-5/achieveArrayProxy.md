@@ -2,6 +2,9 @@
 prev:
     text: 只读与浅只读
     link: /vue/chapter-5/shallowOrDeepReadOnly.md
+next:
+    text: 原始值的响应方案
+    link: /vue/chapter-6/achieveOriganValueProxy.md
 ---
 
 朋友们，上节我们学习了只读和浅只读之后，这节我们来学习如何实现关于数组的代理。
