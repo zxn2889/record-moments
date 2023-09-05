@@ -7,7 +7,7 @@ import sidebar from './sidebar'
 export default defineUserConfig({
     lang: 'zh-CN',
     title: '你好，生活！',
-    description: '这是我的第一个 VuePress 站点',
+    description: 'The more recorded, the better.',
     plugins: [backToTopPlugin(), gitPlugin()],
     // charset: 'utf-8',
     theme: defaultTheme({

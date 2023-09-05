@@ -2,6 +2,9 @@
 prev:
     text: 原始值的响应方案
     link: /vue/chapter-6/achieveOriganValueProxy.md
+next:
+    text: 子节点和 props 属性的挂载
+    link: /vue/chapter-8/mountChildVnodeAndProps.md
 ---
 
 朋友们，前面我们学习了如何实现一个小型的响应式系统，了解了一些内部的实现原理，这节我们学习如何设计一个渲染器，以及了解渲染器和响应系统是如何关联的。

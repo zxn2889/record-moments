@@ -75,11 +75,19 @@ const chapterVII: Array<routeItem> = [
     }
 ]
 
+const chapterVIII: Array<routeItem> = [
+    {
+        text: '子节点和 props 属性的挂载',
+        link: '/vue/chapter-8/mountChildVnodeAndProps.md'
+    }
+]
+
 const sidebar: Array<routeItem> = [
     ...chapterIV,
     ...chapterV,
     ...chapterVI,
-    ...chapterVII
+    ...chapterVII,
+    ...chapterVIII
 ]
 
 export default sidebar
