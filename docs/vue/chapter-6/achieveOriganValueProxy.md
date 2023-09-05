@@ -2,6 +2,9 @@
 prev:
     text: 数组的代理
     link: /vue/chapter-5/achieveArrayProxy.md
+next:
+    text: 渲染器的设计
+    link: /vue/chapter-7/designRenderer.md
 ---
 
 朋友们，上一节学习了数组的代理方案后，非原始值的响应设计就暂时告一段落了。这一节我们将学习如何实现原始值的响应设计。原始值指的就是：```Boolean、Number、String、Symbol、undefined、null、BigInt```这类型的值。
@@ -261,3 +264,17 @@ const proxyRef = (data) => {
 ::::
 
 最后，我们发现，ref 响应对象的出现填补了非响应式对象的空白，实现了原始值的代理响应，解决了代理对象使用展开运算符后的失去响应式问题，且实现了普通对象关联代理对象进而实现响应式的问题。最后，又通过 proxyRef 解决了取值赋值都要使用 .value 的问题。
+
+至这里，我们已经实现了小型的 proxy 响应式系统，为了方便使用，减少 copy 成本，将这部分代码实现了插件化，可持续享用。
+
+安装方式：
+
+```js
+npm i -D @zxn2889/achieve-proxy
+```
+
+or (推荐)
+
+```js
+pnpm add -D @zxn2889/achieve-proxy
+```

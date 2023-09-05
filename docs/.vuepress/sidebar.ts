@@ -68,10 +68,18 @@ const chapterVI: Array<routeItem> = [
     }
 ]
 
+const chapterVII: Array<routeItem> = [
+    {
+        text: '渲染器的设计',
+        link: '/vue/chapter-7/designRenderer.md'
+    }
+]
+
 const sidebar: Array<routeItem> = [
     ...chapterIV,
     ...chapterV,
-    ...chapterVI
+    ...chapterVI,
+    ...chapterVII
 ]
 
 export default sidebar
