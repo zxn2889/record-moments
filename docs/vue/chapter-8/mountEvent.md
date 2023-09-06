@@ -2,6 +2,9 @@
 prev:
     text: 卸载节点的几种情况
     link: /vue/chapter-8/unmountVnode.md
+next:
+    text: 更新子节点
+    link: /vue/chapter-8/updateChildVnode.md
 ---
 
 朋友们，上节我们学习了如何卸载的基本逻辑，这节我们学习如何去挂载事件，及对应的几种情况。

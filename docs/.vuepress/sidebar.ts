@@ -87,6 +87,10 @@ const chapterVIII: Array<routeItem> = [
     {
         text: '如何挂载事件',
         link: '/vue/chapter-8/mountEvent.md'
+    },
+    {
+        text: '更新子节点',
+        link: '/vue/chapter-8/updateChildVnode.md'
     }
 ]
 
