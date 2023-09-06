@@ -79,6 +79,10 @@ const chapterVIII: Array<routeItem> = [
     {
         text: '子节点和 props 属性的挂载',
         link: '/vue/chapter-8/mountChildVnodeAndProps.md'
+    },
+    {
+        text: '卸载节点的几种情况',
+        link: '/vue/chapter-8/unmountVnode.md'
     }
 ]
 

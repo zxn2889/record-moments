@@ -2,6 +2,9 @@
 prev:
     text: 渲染器的设计
     link: /vue/chapter-7/designRenderer.md
+next:
+    text: 卸载节点的几种情况
+    link: /vue/chapter-8/unmountVnode.md
 ---
 
 朋友们，上节我们学习了如何设计一个渲染器，与了解了它的基础架构，这一节我们来进一步的学习如何实现对 vnode 的挂载与更新的第一部分——含有子节点的 vnode 与 props 的挂载。
