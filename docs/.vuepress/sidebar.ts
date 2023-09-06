@@ -91,6 +91,10 @@ const chapterVIII: Array<routeItem> = [
     {
         text: '更新子节点',
         link: '/vue/chapter-8/updateChildVnode.md'
+    },
+    {
+        text: '认识其他的 vnode 类型',
+        link: '/vue/chapter-8/vnodeTypes.md'
     }
 ]
 

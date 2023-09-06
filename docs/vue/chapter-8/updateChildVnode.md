@@ -2,6 +2,9 @@
 prev:
     text: 如何挂载事件
     link: /vue/chapter-8/mountEvent.md
+next:
+    text: 认识其他的 vnode 类型
+    link: /vue/chapter-8/vnodeTypes.md
 ---
 
 朋友们，上节我们学习了如何挂载事件，这节我们学习如何更新子节点。
