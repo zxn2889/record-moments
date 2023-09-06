@@ -18,8 +18,8 @@ devDependencies:
     specifier: 2.0.0-beta.66
     version: 2.0.0-beta.66
   '@zxn2889/achieve-proxy':
-    specifier: ^1.0.3
-    version: 1.0.3
+    specifier: ^1.1.0
+    version: 1.1.0
   vue:
     specifier: ^3.3.4
     version: 3.3.4
@@ -798,8 +798,8 @@ packages:
       - vue
     dev: true
 
-  /@zxn2889/achieve-proxy@1.0.3:
-    resolution: {integrity: sha512-s10fudgQRT6bQubiEFjvpbRz4hvbsVoIT1t7L8VhJo7wL9kcWwRHYIMJ/qo76L3SVZIdxR0B0BkX/zYWYoEMKg==}
+  /@zxn2889/achieve-proxy@1.1.0:
+    resolution: {integrity: sha512-EiXatEu16LAn60X0N2h5H/mfNufeZpt/Em52UTdS8zDEutHuCf6d6FOxoKyl7wFNrqHOueOi6C3BXH3D9zsOTQ==}
     dev: true
 
   /ansi-regex@6.0.1:

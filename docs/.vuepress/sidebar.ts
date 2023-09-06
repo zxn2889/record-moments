@@ -83,6 +83,10 @@ const chapterVIII: Array<routeItem> = [
     {
         text: '卸载节点的几种情况',
         link: '/vue/chapter-8/unmountVnode.md'
+    },
+    {
+        text: '如何挂载事件',
+        link: '/vue/chapter-8/mountEvent.md'
     }
 ]
 

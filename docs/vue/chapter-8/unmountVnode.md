@@ -2,6 +2,9 @@
 prev:
     text: 子节点和 props 属性的挂载
     link: /vue/chapter-8/mountChildVnodeAndProps.md
+next:
+    text: 如何挂载事件
+    link: /vue/chapter-8/mountEvent.md
 ---
 
 朋友们，上节我们学习了子节点和 props 属性的挂载，这节我们学习下如何卸载，及卸载的几种情况。
