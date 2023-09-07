@@ -98,12 +98,20 @@ const chapterVIII: Array<routeItem> = [
     }
 ]
 
+const chapterIX: Array<routeItem> = [
+    {
+        text: '初识 diff',
+        link: '/vue/chapter-9/firstMeetDiff.md'
+    }
+]
+
 const sidebar: Array<routeItem> = [
     ...chapterIV,
     ...chapterV,
     ...chapterVI,
     ...chapterVII,
-    ...chapterVIII
+    ...chapterVIII,
+    ...chapterIX
 ]
 
 export default sidebar

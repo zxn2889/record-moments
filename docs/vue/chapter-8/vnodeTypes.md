@@ -2,6 +2,9 @@
 prev:
     text: 更新子节点
     link: /vue/chapter-8/updateChildVnode.md
+next:
+    text: 初识 diff
+    link: /vue/chapter-9/firstMeetDiff.md
 ---
 
 朋友们，上节我们学习了如何实现子节点的更新，这节我们就来认识几种新的 vnode 类型吧。

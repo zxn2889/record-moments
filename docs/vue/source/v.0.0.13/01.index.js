@@ -256,47 +256,28 @@ function createRenderer(options) {
     function diff(n1, n2, container) {
         const oChild = n1.children
         const nChild = n2.children
+        const oLen = oChild.length
+        const nLen = nChild.length
 
-        // 定义旧节点要比较的基准值，并设置初始值为 0——和新节点循环的初始角标一致
-        let lastestIndex = 0
-        for (let i = 0; i < nChild.length; i++) {
-            const nv = nChild[i]
+        // 比较新旧节点的长度，并找到最小的那个值
+        const mLen = Math.min(oLen, nLen)
 
-            // 挂载新增的节点
-            const hasEl = oChild.find(v => v.key === nv.key)
-            if (!hasEl) {
-                mountEl(nv, container)
-            }
+        // 以最小的基数遍历
+        for (let i = 0; i < mLen; i++) {
+            patch(oChild[i], nChild[i], container)
+        }
 
-            for (let j = 0; j < oChild.length; j++) {
-                const ov = oChild[j]
-
-                // 满足可复用的条件
-                if (nv.type === ov.type && nv.key === ov.key) {
-                    patch(ov, nv, container)
-
-                    if (j < lastestIndex) {
-                        // 找到当前节点的前一个兄弟节点
-                        const prevNode = ov._el.previousSibling
-
-                        // 将当前节点插入到父节点下的指定位置
-                        insert(ov._el, container, prevNode)
-                    }
-                    // 在满足可复用的条件下，如果当前旧节点的角标不小于要比较的基准值，则更新基准值为当前旧节点的角标值
-                    else {
-                        lastestIndex = j
-                    }
-                    break
-                }
+        // 新节点中超出的挂载
+        if (nLen > mLen) {
+            for (let i = mLen; i < nLen; i++) {
+                patch(null, nChild[i], container)
             }
         }
 
-        // 卸载不存在的旧节点
-        for (let i = 0; i < oChild.length; i++) {
-            const ov = oChild[i]
-            const hasEl = nChild.find(v => v.key === ov.key)
-            if (!hasEl) {
-                unmount(ov)
+        // 旧节点中超出的卸载
+        if (oLen > mLen) {
+            for (let i = mLen; i < oLen; i++) {
+                unmount(oChild[i])
             }
         }
     }
@@ -312,18 +293,17 @@ const renderer = createRenderer({ createElement, setTextContent, insert })
 const oVnode = {
     type: 'div',
     children: [
-        { type: 'p', key: 1, children: 'No.1' },
-        { type: 'span', key: 2, children: 'No.2' },
-        { type: 'div', key: 3, children: 'No.3' }
+        { type: 'p', children: 'No.1' },
+        { type: 'p', children: 'No.2' },
+        { type: 'p', children: 'No.3' }
     ]
 }
 
 const nVnode = {
     type: 'div',
     children: [
-        { type: 'div', key: 3, children: 'No.3' },
-        { type: 'p', key: 1, children: 'No.1' },
-        { type: 'div', key: 4, children: 'No.4' }
+        { type: 'p', children: 'No.3' },
+        { type: 'p', children: 'No.1' },
     ]
 }
 

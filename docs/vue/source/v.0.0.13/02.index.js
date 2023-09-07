@@ -261,13 +261,6 @@ function createRenderer(options) {
         let lastestIndex = 0
         for (let i = 0; i < nChild.length; i++) {
             const nv = nChild[i]
-
-            // 挂载新增的节点
-            const hasEl = oChild.find(v => v.key === nv.key)
-            if (!hasEl) {
-                mountEl(nv, container)
-            }
-
             for (let j = 0; j < oChild.length; j++) {
                 const ov = oChild[j]
 
@@ -288,15 +281,6 @@ function createRenderer(options) {
                     }
                     break
                 }
-            }
-        }
-
-        // 卸载不存在的旧节点
-        for (let i = 0; i < oChild.length; i++) {
-            const ov = oChild[i]
-            const hasEl = nChild.find(v => v.key === ov.key)
-            if (!hasEl) {
-                unmount(ov)
             }
         }
     }
@@ -323,7 +307,7 @@ const nVnode = {
     children: [
         { type: 'div', key: 3, children: 'No.3' },
         { type: 'p', key: 1, children: 'No.1' },
-        { type: 'div', key: 4, children: 'No.4' }
+        { type: 'span', key: 2, children: 'No.2' }
     ]
 }
 

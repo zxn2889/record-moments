@@ -125,7 +125,7 @@ function createRenderer(options) {
     }
 
     // 挂载与比较虚拟节点的函数——渲染的核心入口
-    function patch(_o_vnode, vnode, container) {
+    function patch(_o_vnode, vnode, container, anchor) {
         // 先卸载
         if (_o_vnode && _o_vnode.type !== vnode.type) {
             unmount(_o_vnode)
@@ -140,7 +140,7 @@ function createRenderer(options) {
         if (typeof type === 'string') {
             // 不存在旧 vnode 直接挂载逻辑
             if (!_o_vnode) {
-                mountEl(vnode, container)
+                mountEl(vnode, container, anchor)
             } else {
                 // 存在旧 vnode，则比较
                 patchEl(_o_vnode, vnode)
@@ -268,19 +268,30 @@ function createRenderer(options) {
                 mountEl(nv, container)
             }
 
+            let find = false
             for (let j = 0; j < oChild.length; j++) {
                 const ov = oChild[j]
 
                 // 满足可复用的条件
-                if (nv.type === ov.type && nv.key === ov.key) {
+                if (nv.key === ov.key) {
+                    find = true
+
                     patch(ov, nv, container)
 
                     if (j < lastestIndex) {
-                        // 找到当前节点的前一个兄弟节点
-                        const prevNode = ov._el.previousSibling
+                        // 找到新节点对应的上一个节点
+                        // 注意，新旧节点的 DOM 指向都是一样的，都是指向的旧节点对应的真实节点
+                        const prevNode = nChild[i-1]
 
-                        // 将当前节点插入到父节点下的指定位置
-                        insert(ov._el, container, prevNode)
+                        // 如果不存在，说明是第一个，不需要移动
+                        if (prevNode) {
+                            // 找到上一个节点的对应的下一个兄弟节点
+                            const anchor = prevNode._el.nextSibling
+
+                            // 将当前兄弟节点作为锚点插入到父节点下的指定位置
+                            insert(nv._el, container, anchor)
+                        }
+
                     }
                     // 在满足可复用的条件下，如果当前旧节点的角标不小于要比较的基准值，则更新基准值为当前旧节点的角标值
                     else {
@@ -288,6 +299,19 @@ function createRenderer(options) {
                     }
                     break
                 }
+            }
+
+            // 如果到这里仍然为 false，说明没有可复用节点，即为新增节点
+            // 注意：上面判断是否为可复用节点时，并没有判断 type，所以这里不严谨
+            if (!find) {
+                const prevNode = nChild[i-1]
+                let anchor
+                if (prevNode) {
+                    anchor = prevNode._el.nextSibling
+                } else {
+                    anchor = container.firstChild
+                }
+                patch(null, nv, container, anchor)
             }
         }
 
