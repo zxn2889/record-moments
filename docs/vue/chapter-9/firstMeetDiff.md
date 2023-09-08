@@ -2,6 +2,9 @@
 prev:
     text: 认识其他的 vnode 类型
     link: /vue/chapter-8/vnodeTypes.md
+next:
+    text: 双端比较 diff
+    link: /vue/chapter-10/doubleEndDiff.md
 ---
 
 朋友们，上节我们学习了几种 vnode 节点的新类型，并了解了如何去挂载和更新它们。这节我们学习简单的 diff 算法，让子节点的更新更有效率。

@@ -105,13 +105,21 @@ const chapterIX: Array<routeItem> = [
     }
 ]
 
+const chapterX: Array<routeItem> = [
+    {
+        text: '双端比较 diff',
+        link: '/vue/chapter-10/doubleEndDiff.md'
+    }
+]
+
 const sidebar: Array<routeItem> = [
     ...chapterIV,
     ...chapterV,
     ...chapterVI,
     ...chapterVII,
     ...chapterVIII,
-    ...chapterIX
+    ...chapterIX,
+    ...chapterX
 ]
 
 export default sidebar
