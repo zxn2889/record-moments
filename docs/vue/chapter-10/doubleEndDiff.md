@@ -2,6 +2,9 @@
 prev:
     text: 初识 diff,
     link: /vue/chapter-9/firstMeetDiff.md
+next:
+    text: 快速 diff
+    link: /vue/chapter-11/quickDiff.md
 ---
 
 朋友们，上节我们学习了简单的 diff 算法，知晓了 key 和如何移动 DOM，这节我们来进一步学习 diff 的优化——双端比较 diff。

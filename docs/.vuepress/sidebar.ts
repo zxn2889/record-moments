@@ -112,6 +112,13 @@ const chapterX: Array<routeItem> = [
     }
 ]
 
+const chapterXI: Array<routeItem> = [
+    {
+        text: '快速 diff',
+        link: '/vue/chapter-11/quickDiff.md'
+    }
+]
+
 const sidebar: Array<routeItem> = [
     ...chapterIV,
     ...chapterV,
@@ -119,7 +126,8 @@ const sidebar: Array<routeItem> = [
     ...chapterVII,
     ...chapterVIII,
     ...chapterIX,
-    ...chapterX
+    ...chapterX,
+    ...chapterXI
 ]
 
 export default sidebar
