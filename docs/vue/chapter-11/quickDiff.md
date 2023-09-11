@@ -2,6 +2,9 @@
 prev:
     text: 双端比较 diff
     link: /vue/chapter-10/doubleEndDiff.md
+next:
+    text: 组件的挂载与更新
+    link: /vue/chapter-12/achieveAssemblyMountedAndUpdate.md
 ---
 
 朋友们，上节我们学习了双端 diff 算法，知晓了比较 4 步。这节我们将学习快速 diff 算法，实现在性能上的更进一步。

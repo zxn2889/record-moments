@@ -119,6 +119,13 @@ const chapterXI: Array<routeItem> = [
     }
 ]
 
+const chapterXII: Array<routeItem> = [
+    {
+        text: '组件的挂载与更新',
+        link: '/vue/chapter-12/achieveAssemblyMountedAndUpdate.md'
+    }
+]
+
 const sidebar: Array<routeItem> = [
     ...chapterIV,
     ...chapterV,
@@ -127,7 +134,8 @@ const sidebar: Array<routeItem> = [
     ...chapterVIII,
     ...chapterIX,
     ...chapterX,
-    ...chapterXI
+    ...chapterXI,
+    ...chapterXII
 ]
 
 export default sidebar
