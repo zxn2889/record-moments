@@ -2,6 +2,9 @@
 prev:
     text: 实现 setup
     link: /vue/chapter-12/achieveAssemblySetup.md
+next:
+    text: 实现 slots
+    link: /vue/chapter-12/achieveAssemblySlots.md
 ---
 
 朋友们，上节我们学习了 setup 内部的实现方法，这节我们学习 emit 的实现原理。

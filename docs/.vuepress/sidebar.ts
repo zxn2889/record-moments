@@ -131,6 +131,10 @@ const chapterXII: Array<routeItem> = [
     {
         text: '实现 emit',
         link: '/vue/chapter-12/achieveAssemblyEmit.md'
+    },
+    {
+        text: '实现 slots',
+        link: '/vue/chapter-12/achieveAssemblySlots.md'
     }
 ]
 
