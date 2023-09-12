@@ -123,6 +123,10 @@ const chapterXII: Array<routeItem> = [
     {
         text: '组件的挂载与更新',
         link: '/vue/chapter-12/achieveAssemblyMountedAndUpdate.md'
+    },
+    {
+        text: '实现 setup',
+        link: '/vue/chapter-12/achieveAssemblySetup.md'
     }
 ]
 
