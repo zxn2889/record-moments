@@ -127,6 +127,10 @@ const chapterXII: Array<routeItem> = [
     {
         text: '实现 setup',
         link: '/vue/chapter-12/achieveAssemblySetup.md'
+    },
+    {
+        text: '实现 emit',
+        link: '/vue/chapter-12/achieveAssemblyEmit.md'
     }
 ]
 

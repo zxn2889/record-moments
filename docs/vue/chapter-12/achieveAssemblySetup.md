@@ -2,6 +2,9 @@
 prev:
     text: 组件的挂载与更新
     link: /vue/chapter-12/achieveAssemblyMountedAndUpdate.md
+next:
+    text: 实现 emit
+    link: /vue/chapter-12/achieveAssemblyEmit.md
 ---
 
 朋友们，上节我们学习了组件的挂载与更新情况，这节我们学习组件 setup 的实现。
