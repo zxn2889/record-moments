@@ -2,6 +2,9 @@
 prev:
     text: 实现 slots
     link: /vue/chapter-12/achieveAssemblySlots.md
+next:
+    text: 函数式组件
+    link: /vue/chapter-13/achieveAssemblyFun.md
 ---
 
 朋友们，上节我们学习了如何实现插槽，这节我们学习如何实现生命周期。

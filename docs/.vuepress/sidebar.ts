@@ -142,6 +142,13 @@ const chapterXII: Array<routeItem> = [
     }
 ]
 
+const chapterXIII: Array<routeItem> = [
+    {
+        text: '函数式组件',
+        link: '/vue/chapter-13/achieveAssemblyFun.md'
+    }
+]
+
 const sidebar: Array<routeItem> = [
     ...chapterIV,
     ...chapterV,
@@ -151,7 +158,8 @@ const sidebar: Array<routeItem> = [
     ...chapterIX,
     ...chapterX,
     ...chapterXI,
-    ...chapterXII
+    ...chapterXII,
+    ...chapterXIII
 ]
 
 export default sidebar
