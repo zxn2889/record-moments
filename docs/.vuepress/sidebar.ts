@@ -135,6 +135,10 @@ const chapterXII: Array<routeItem> = [
     {
         text: '实现 slots',
         link: '/vue/chapter-12/achieveAssemblySlots.md'
+    },
+    {
+        text: '实现生命周期',
+        link: '/vue/chapter-12/achieveAssemblyMounted.md'
     }
 ]
 

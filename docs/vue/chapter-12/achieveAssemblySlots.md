@@ -2,6 +2,9 @@
 prev:
     text: 实现 emit
     link: /vue/chapter-12/achieveAssemblyEmit.md
+next:
+    text: 实现生命周期
+    link: /vue/chapter-12/achieveAssemblyMounted.md
 ---
 
 朋友们，上节学习了如何实现 emit，这节学习如何实现插槽——slots。
