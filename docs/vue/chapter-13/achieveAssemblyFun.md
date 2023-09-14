@@ -2,6 +2,9 @@
 prev:
     text: 实现生命周期
     link: /vue/chapter-12/achieveAssemblyMounted.md
+next:
+    text: keep-alive
+    link: /vue/chapter-14/achieveKeepAlive.md
 ---
 
 朋友们，上节我们学习了如何实现一个生命周期，这节我们学习如何实现函数式组件。

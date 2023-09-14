@@ -149,6 +149,13 @@ const chapterXIII: Array<routeItem> = [
     }
 ]
 
+const chapterXIV: Array<routeItem> = [
+    {
+        text: 'keep-alive',
+        link: '/vue/chapter-14/achieveKeepAlive.md'
+    }
+]
+
 const sidebar: Array<routeItem> = [
     ...chapterIV,
     ...chapterV,
@@ -159,7 +166,8 @@ const sidebar: Array<routeItem> = [
     ...chapterX,
     ...chapterXI,
     ...chapterXII,
-    ...chapterXIII
+    ...chapterXIII,
+    ...chapterXIV
 ]
 
 export default sidebar
