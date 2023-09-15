@@ -156,6 +156,13 @@ const chapterXIV: Array<routeItem> = [
     }
 ]
 
+const chapterXV: Array<routeItem> = [
+    {
+        text: '实现 tokens',
+        link: '/vue/chapter-15/achieveTokens.md'
+    }
+]
+
 const sidebar: Array<routeItem> = [
     ...chapterIV,
     ...chapterV,
@@ -167,7 +174,8 @@ const sidebar: Array<routeItem> = [
     ...chapterXI,
     ...chapterXII,
     ...chapterXIII,
-    ...chapterXIV
+    ...chapterXIV,
+    ...chapterXV
 ]
 
 export default sidebar
