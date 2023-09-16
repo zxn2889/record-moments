@@ -2,6 +2,9 @@
 prev:
     text: keep-alive
     link: /vue/chapter-14/achieveKeepAlive.md
+next:
+    text: 实现 parser
+    link: /vue/chapter-15/achieveParser.md
 ---
 
 朋友们，上节我们学习了如何实现 keep-alive，知晓了内部组件的实现方式，初步的完成了渲染器的学习，这节开始我们将进入编译器的世界，了解并学习它的实现原理。

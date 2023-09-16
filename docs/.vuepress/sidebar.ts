@@ -160,6 +160,10 @@ const chapterXV: Array<routeItem> = [
     {
         text: '实现 tokens',
         link: '/vue/chapter-15/achieveTokens.md'
+    },
+    {
+        text: '实现 parser',
+        link: '/vue/chapter-15/achieveParser.md'
     }
 ]
 
