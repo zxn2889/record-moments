@@ -2,6 +2,9 @@
 prev:
     text: 实现 tokens
     link: /vue/chapter-15/achieveTokens.md
+next:
+    text: parser 优化
+    link: /vue/chapter-15/parserOptimize.md
 ---
 
 朋友们，上节我们学习了词法解析，这节我们学习 parser——解析器。

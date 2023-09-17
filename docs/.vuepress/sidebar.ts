@@ -164,6 +164,10 @@ const chapterXV: Array<routeItem> = [
     {
         text: '实现 parser',
         link: '/vue/chapter-15/achieveParser.md'
+    },
+    {
+        text: 'parser 优化',
+        link: '/vue/chapter-15/parserOptimize.md'
     }
 ]
 
