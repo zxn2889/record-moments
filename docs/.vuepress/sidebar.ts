@@ -168,6 +168,10 @@ const chapterXV: Array<routeItem> = [
     {
         text: 'parser 优化',
         link: '/vue/chapter-15/parserOptimize.md'
+    },
+    {
+        text: '实现转换器',
+        link: '/vue/chapter-15/achieveTransformer.md'
     }
 ]
 

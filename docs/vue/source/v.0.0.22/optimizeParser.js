@@ -1,5 +1,4 @@
 import { transformTextJsNode, transformElementJsNode, transformRootJsNode } from './transformer.js'
-
 let currentContext = null
 
 // 优化模板 AST
