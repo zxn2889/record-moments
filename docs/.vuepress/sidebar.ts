@@ -172,6 +172,10 @@ const chapterXV: Array<routeItem> = [
     {
         text: '实现转换器',
         link: '/vue/chapter-15/achieveTransformer.md'
+    },
+    {
+        text: '实现生成器',
+        link: '/vue/chapter-15/achieveGenerator.md'
     }
 ]
 

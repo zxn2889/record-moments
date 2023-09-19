@@ -2,6 +2,9 @@
 prev:
     text: parser 优化
     link: /vue/chapter-15/parserOptimize.md
+next:
+    text: 实现生成器
+    link: /vue/chapter-15/achieveGenerator.md
 ---
 
 朋友们，上节我们学习了如何对生成的模板 AST 进行再优化，这节我们学习如何实现一个转换器。
@@ -229,7 +232,7 @@ function traverseNode(ast, context) {
     // 省略
 
     if (callBackFunc.length) {
-        for (let i = 0; i < callBackFunc.length; i++) {
+        for (let i = callBackFunc.length - 1; i >= 0; i--) {
             callBackFunc[i]();
         }
     }

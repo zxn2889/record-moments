@@ -51,7 +51,7 @@ function traverseNode(ast, context) {
     }
 
     if (callBackFunc.length) {
-        for (let i = 0; i < callBackFunc.length; i++) {
+        for (let i = callBackFunc.length - 1; i >= 0; i--) {
             callBackFunc[i]();
         }
     }
