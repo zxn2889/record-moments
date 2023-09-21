@@ -179,6 +179,13 @@ const chapterXV: Array<routeItem> = [
     }
 ]
 
+const chapterOther: Array<routeItem> = [
+    {
+        text: '实现 .husky',
+        link: '/husky/index.md'
+    }
+]
+
 const sidebar: Array<routeItem> = [
     ...chapterIV,
     ...chapterV,
@@ -191,7 +198,8 @@ const sidebar: Array<routeItem> = [
     ...chapterXII,
     ...chapterXIII,
     ...chapterXIV,
-    ...chapterXV
+    ...chapterXV,
+    ...chapterOther
 ]
 
 export default sidebar
