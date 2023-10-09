@@ -5,7 +5,7 @@ import { gitPlugin } from '@vuepress/plugin-git'
 import sidebar from './sidebar'
 
 export default defineUserConfig({
-    base: '/',
+    base: '/record-moments/',
     lang: 'zh-CN',
     title: '你好，生活！',
     description: 'The more recorded, the better.',
