@@ -7,7 +7,7 @@ import sidebar from './sidebar'
 export default defineUserConfig({
     base: '/record-moments/',
     lang: 'zh-CN',
-    title: '你好，生活！',
+    title: '你好，生活，撒贝宁！',
     description: 'The more recorded, the better.',
     plugins: [backToTopPlugin(), gitPlugin()],
     // charset: 'utf-8',
