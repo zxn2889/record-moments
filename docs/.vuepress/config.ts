@@ -12,6 +12,7 @@ export default defineUserConfig({
     plugins: [backToTopPlugin(), gitPlugin()],
     // charset: 'utf-8',
     theme: defaultTheme({
-        sidebar
+        sidebar,
+        repo: 'https://github.com/zxn2889/record-moments'
     })
 })
