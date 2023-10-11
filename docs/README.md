@@ -9,5 +9,5 @@ actions:
   - text: 留点白
     link: /guide/someWhite.md
     type: secondary
-footer: MIT Licensed | Copyright © 2023-present ZXN
+footer: MIT Licensed | Copyright © 2023-present Spade A
 ---
