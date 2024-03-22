@@ -1,0 +1,1 @@
+import{_ as t,o as a,c as o,a as e,b as s}from"./app-13115eff.js";const c={},r=e("h4",{id:"越记录-越美好",tabindex:"-1"},[e("a",{class:"header-anchor",href:"#越记录-越美好","aria-hidden":"true"},"#"),s(" 越记录，越美好")],-1),n=[r];function _(d,i){return a(),o("div",null,n)}const l=t(c,[["render",_],["__file","someWhite.html.vue"]]);export{l as default};
