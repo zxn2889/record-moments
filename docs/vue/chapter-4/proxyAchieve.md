@@ -1,4 +1,7 @@
 ---
+title: 响应式实现过程
+editLink: true
+footer: true
 next:
     text: effect嵌套实现过程
     link: /vue/chapter-4/effectNest.md
