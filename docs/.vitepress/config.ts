@@ -29,7 +29,7 @@ export default defineConfig({
     themeConfig: {
         logo: '/img/vitepress-logo-mini.svg',
         socialLinks: [
-            { icon: 'github', link: 'https://zxn2889.github.io/record-moments/' },
+            { icon: 'github', link: 'https://github.com/zxn2889/record-moments' },
         ],
         carbonAds: { code: 'CEBDT27Y', placement: 'vuejsorg' },
         editLink: {
