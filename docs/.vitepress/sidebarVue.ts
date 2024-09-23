@@ -1,9 +1,6 @@
-interface routeItem {
-    text: string,
-    link: string
-}
+import { type DefaultTheme } from 'vitepress'
 
-const chapterIV: Array<routeItem> = [
+const chapterIV: DefaultTheme.SidebarItem[] = [
     {
         text: '响应式实现过程',
         link: '/vue/chapter-4/proxyAchieve.md'
@@ -38,7 +35,7 @@ const chapterIV: Array<routeItem> = [
     }
 ]
 
-const chapterV: Array<routeItem> = [
+const chapterV: DefaultTheme.SidebarItem[] = [
     {
         text: '更近一步的 Proxy',
         link: '/vue/chapter-5/furtherAgency.md'
@@ -61,21 +58,21 @@ const chapterV: Array<routeItem> = [
     }
 ]
 
-const chapterVI: Array<routeItem> = [
+const chapterVI: DefaultTheme.SidebarItem[] = [
     {
         text: '原始值的响应方案',
         link: '/vue/chapter-6/achieveOriganValueProxy.md'
     }
 ]
 
-const chapterVII: Array<routeItem> = [
+const chapterVII: DefaultTheme.SidebarItem[] = [
     {
         text: '渲染器的设计',
         link: '/vue/chapter-7/designRenderer.md'
     }
 ]
 
-const chapterVIII: Array<routeItem> = [
+const chapterVIII: DefaultTheme.SidebarItem[] = [
     {
         text: '子节点和 props 属性的挂载',
         link: '/vue/chapter-8/mountChildVnodeAndProps.md'
@@ -98,28 +95,28 @@ const chapterVIII: Array<routeItem> = [
     }
 ]
 
-const chapterIX: Array<routeItem> = [
+const chapterIX: DefaultTheme.SidebarItem[] = [
     {
         text: '初识 diff',
         link: '/vue/chapter-9/firstMeetDiff.md'
     }
 ]
 
-const chapterX: Array<routeItem> = [
+const chapterX: DefaultTheme.SidebarItem[] = [
     {
         text: '双端比较 diff',
         link: '/vue/chapter-10/doubleEndDiff.md'
     }
 ]
 
-const chapterXI: Array<routeItem> = [
+const chapterXI: DefaultTheme.SidebarItem[] = [
     {
         text: '快速 diff',
         link: '/vue/chapter-11/quickDiff.md'
     }
 ]
 
-const chapterXII: Array<routeItem> = [
+const chapterXII: DefaultTheme.SidebarItem[] = [
     {
         text: '组件的挂载与更新',
         link: '/vue/chapter-12/achieveAssemblyMountedAndUpdate.md'
@@ -142,21 +139,21 @@ const chapterXII: Array<routeItem> = [
     }
 ]
 
-const chapterXIII: Array<routeItem> = [
+const chapterXIII: DefaultTheme.SidebarItem[] = [
     {
         text: '函数式组件',
         link: '/vue/chapter-13/achieveAssemblyFun.md'
     }
 ]
 
-const chapterXIV: Array<routeItem> = [
+const chapterXIV: DefaultTheme.SidebarItem[] = [
     {
         text: 'keep-alive',
         link: '/vue/chapter-14/achieveKeepAlive.md'
     }
 ]
 
-const chapterXV: Array<routeItem> = [
+const chapterXV: DefaultTheme.SidebarItem[] = [
     {
         text: '实现 tokens',
         link: '/vue/chapter-15/achieveTokens.md'
@@ -179,27 +176,69 @@ const chapterXV: Array<routeItem> = [
     }
 ]
 
-const chapterOther: Array<routeItem> = [
-    {
-        text: '实现 .husky',
-        link: '/husky/index.md'
-    }
-]
+function sidebarVue(): DefaultTheme.SidebarItem[] {
+    return [
+        {
+            text: '第四章',
+            collapsed: false,
+            items: [...chapterIV]
+        },
+        {
+            text: '第五章',
+            collapsed: false,
+            items: [...chapterV]
+        },
+        {
+            text: '第六章',
+            collapsed: false,
+            items: [...chapterVI]
+        },
+        {
+            text: '第七章',
+            collapsed: false,
+            items: [...chapterVII]
+        },
+        {
+            text: '第八章',
+            collapsed: false,
+            items: [...chapterVIII]
+        },
+        {
+            text: '第九章',
+            collapsed: false,
+            items: [...chapterIX]
+        },
+        {
+            text: '第十章',
+            collapsed: false,
+            items: [...chapterX]
+        },
+        {
+            text: '第十一章',
+            collapsed: false,
+            items: [...chapterXI]
+        },
+        {
+            text: '第十二章',
+            collapsed: false,
+            items: [...chapterXII]
+        },
+        {
+            text: '第十三章',
+            collapsed: false,
+            items: [...chapterXIII]
+        },
+        {
+            text: '第十四章',
+            collapsed: false,
+            items: [...chapterXIV]
+        },
+        {
+            text: '第十五章',
+            collapsed: false,
+            items: [...chapterXV]
+        }
+    ]
+}
 
-const sidebar: Array<routeItem> = [
-    ...chapterIV,
-    ...chapterV,
-    ...chapterVI,
-    ...chapterVII,
-    ...chapterVIII,
-    ...chapterIX,
-    ...chapterX,
-    ...chapterXI,
-    ...chapterXII,
-    ...chapterXIII,
-    ...chapterXIV,
-    ...chapterXV,
-    ...chapterOther
-]
-
-export default sidebar
+export default sidebarVue

@@ -1,11 +1,12 @@
-import { defineConfig } from 'vitepress'
-import sidebar from './sidebar'
+import { defineConfig, type DefaultTheme } from 'vitepress'
+import sidebarVue from './sidebarVue'
+import sidebarGuide from './sidebarGuide'
 
 export default defineConfig({
     base: '/record-moments/',
     lang: 'zh-CN',
     title: '火箭吧！',
-    description: 'The more recorded, the better.',
+    description: '越记录，越美好！',
     cleanUrls: true,
     metaChunk: true,
     lastUpdated: true,
@@ -31,9 +32,53 @@ export default defineConfig({
             { icon: 'github', link: 'https://zxn2889.github.io/record-moments/' },
         ],
         carbonAds: { code: 'CEBDT27Y', placement: 'vuejsorg' },
-        sidebar,
+        editLink: {
+            pattern: 'https://github.com/zxn2889/record-moments/tree/main/docs/:path',
+            text: '在 GitHub 上编辑此页面'
+        },
+        footer: {
+            message: '基于 ISC 许可发布',
+            copyright: `版权所有 © 2023-${new Date().getFullYear()} Spade A`
+        },
+        docFooter: {
+            prev: '上一页',
+            next: '下一页'
+        },
+        outline: {
+            label: '页面导航'
+        },
+        lastUpdated: {
+            text: '最后更新于',
+            formatOptions: {
+              dateStyle: 'short',
+              timeStyle: 'medium'
+            }
+        },
+        returnToTopLabel: '回到顶部',
+        sidebarMenuLabel: '菜单',
+        darkModeSwitchLabel: '主题',
+        lightModeSwitchTitle: '切换到浅色模式',
+        darkModeSwitchTitle: '切换到深色模式',
+        nav: nav(),
+        sidebar: {
+            '/guide/': sidebarGuide(),
+            '/vue/': sidebarVue()
+        }
     },
-    rewrites: {
-        'vue/:chapter/:page': ':chapter/:page',
-    }
 })
+
+function nav(): DefaultTheme.NavItem[] {
+    return [
+        {
+            text: '指南',
+            link: '/guide/husky',
+            activeMatch: '/guide/'
+        },
+        {
+            text: 'VUE原理',
+            link: '/vue/chapter-4/proxyAchieve',
+            activeMatch: '/vue/'
+        }
+    ]
+}
+
