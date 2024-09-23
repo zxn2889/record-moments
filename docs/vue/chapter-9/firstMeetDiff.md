@@ -111,7 +111,7 @@ function unmount(vnode) {
 ```
 
 ::: details 详细代码如下
-@[code](../source/v.0.0.13/01.index.js)
+<<< ../source/v.0.0.13/01.index.js
 :::
 
 但是，这样的处理也是毛糙的，比如所有的内容都一样，只有 type 对应的元素不一样，如：
@@ -268,7 +268,7 @@ function diff(n1, n2, container) {
 但是，代码还可以继续优化，详情代码如下：
 
 ::: details 详细代码
-@[code](../source/v.0.0.13/02.index.js)
+<<< ../source/v.0.0.13/02.index.js
 :::
 
 注意这里采用 ```break``` 跳出，是指满足条件后跳出当前循环，不再执行后续逻辑；而 parent 节点可以通过 container 带入，避免了更多资源的浪费。
@@ -325,17 +325,11 @@ function diff(n1, n2, container) {
 2. 比较新旧节点的最小长度，最小长度内的都 patch 比较更新，以外的分别与新旧节点长度做比较，如果新者长，则以此为起始角标，循环挂载；如是后者，则以此为起始角标，循环卸载
 3. 以可复用条件为基础，调整旧节点对应真实 DOM 顺序，以 key 值在新旧节点中是否存在，做对应挂载与卸载的方式
 
-源码如下：
-
-:::: code-group
-::: code-group-item 模拟板
-@[code](../source/v.0.0.13/03.index.js)
+::: details 源码如下：
+::: code-group
+<<< ../source/v.0.0.13/03.index.js [模拟板]
+<<< ../source/v.0.0.13/04.index.js [源码版]
 :::
-
-::: code-group-item 源码版
-@[code](../source/v.0.0.13/04.index.js)
-:::
-::::
 
 ::: tip 结尾彩蛋
 diff 算法比较的是新旧节点的一组节点。

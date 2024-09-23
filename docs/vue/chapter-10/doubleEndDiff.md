@@ -299,5 +299,5 @@ function doubleEndDiff(n1, n2, container) {
 至这里，我们已经了解了如何实现一个双边算法，知晓了如何进行 4 步判断，知晓了如果可复用场景都不存在时的如何挂载，也知晓了如何在循环结束后卸载还未执行的旧节点。更进一步的揭开了 diff 算法的神秘面纱。完整代码如下：
 
 ::: details 代码详情
-@[code](../source/v.0.0.14/index.js)
+../source/v.0.0.14/index.js
 :::

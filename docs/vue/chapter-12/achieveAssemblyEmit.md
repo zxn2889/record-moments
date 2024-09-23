@@ -81,7 +81,7 @@ function emit(eventName, args, props) {
 完整代码如下：
 
 ::: details 代码详情
-@[code](../source/v.0.0.16/03.index.js)
+<<< ../source/v.0.0.16/03.index.js
 :::
 
 至这里，我们实现了 emit 的逻辑，了解了其内部为什么在调用时能够触发的逻辑，也明白了在设计 vnode 结构的时候，props 属性与 type 指向的组件选项内容对象有多么强大的联系——它完全把组件间相互包裹的关系给联系起来了。这里的表现则是通过合法的 props 拿到了父组件定义在子组件上的事件属性，而子组件本身又有 emit 的抛出，这就给联系了起来。揭开了 emit 的神秘面纱。

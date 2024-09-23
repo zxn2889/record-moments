@@ -241,27 +241,13 @@ const proxyRef = (data) => {
 
 完整代码如下：
 
-:::: code-group
-::: code-group-item index.js
-@[code](../source/v.0.0.6/index.js)
+::: code-group
+<<< ../source/v.0.0.6/index.js [index.js]
+<<< ../source/v.0.0.6/proxy.js [proxy.js]
+<<< ../source/v.0.0.6/origanProxy.js [origanProxy.js]
+<<< ../source/v.0.0.6/effect.js [effect.js]
+<<< ../source/v.0.0.6/rewriteArray.js [rewriteArray.js]
 :::
-
-::: code-group-item proxy.js
-@[code](../source/v.0.0.6/proxy.js)
-:::
-
-::: code-group-item origanProxy.js
-@[code](../source/v.0.0.6/origanProxy.js)
-:::
-
-::: code-group-item effect.js
-@[code](../source/v.0.0.6/effect.js)
-:::
-
-::: code-group-item rewriteArray.js
-@[code](../source/v.0.0.6/rewriteArray.js)
-:::
-::::
 
 最后，我们发现，ref 响应对象的出现填补了非响应式对象的空白，实现了原始值的代理响应，解决了代理对象使用展开运算符后的失去响应式问题，且实现了普通对象关联代理对象进而实现响应式的问题。最后，又通过 proxyRef 解决了取值赋值都要使用 .value 的问题。
 

@@ -362,16 +362,8 @@ const track = (target, prop) => {
 
 最后完整代码如下：
 
-:::: code-group
-::: code-group-item index.js
-@[code](../source/v.0.0.5/index.js)
+::: code-group
+<<< ../source/v.0.0.5/index.js [index.js]
+<<< ../source/v.0.0.5/proxy.js [proxy.js]
+<<< ../source/v.0.0.5/rewriteArray.js [rewriteArray.js]
 :::
-
-::: code-group-item proxy.js
-@[code](../source/v.0.0.5/proxy.js)
-:::
-
-::: code-group-item rewriteArray.js
-@[code](../source/v.0.0.5/rewriteArray.js)
-:::
-::::

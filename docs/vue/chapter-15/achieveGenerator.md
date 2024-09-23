@@ -131,13 +131,9 @@ function createGenerator(ast) {
 
 可以看到，我们已经实现了生成器功能，虽然还没有做换行处理，但是它已经实现了。相关完整代码如下：
 
-:::: code-group
-::: code-group-item indexjs
-@[code](../source/v.0.0.23/index.js)
+::: code-group
+<<< ../source/v.0.0.23/index.js [indexjs]
+<<< ../source/v.0.0.23/generator.js [generator.js]
 :::
-::: code-group-item generator.js
-@[code](../source/v.0.0.23/generator.js)
-:::
-::::
 
 至这里，我们已经学习了如何实现一个生成器，它的主要逻辑就是对转换器生成的结果进行拼接，组合成一个渲染函数，最后 return 出去。

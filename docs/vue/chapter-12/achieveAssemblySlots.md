@@ -150,7 +150,7 @@ const vnode = {
 完整逻辑如下：
 
 ::: details 详细代码
-@[code](../source/v.0.0.16/04.index.js)
+<<< ../source/v.0.0.16/04.index.js
 :::
 
 至这里，我们分析并学习了 slots 实现的全过程，了解了其内部实现的原理，以及为什么对应的 vnode 是这样设计的原因。揭开了 slots 的神秘面纱。

@@ -115,15 +115,10 @@ function mountEl(vnode, el) {
 
 这个过程也发现很多问题，它不够优雅，也没有那么适用性强。所以，一方面要做抽离，方便适用各个平台，一方面是要把逻辑进行优化，如下：
 
-:::: code-group
-::: code-group-item index.html
-@[code](../source/v.0.0.7/index.html)
+::: code-group
+<<< ../source/v.0.0.7/index.html [index.html]
+<<< ../source/v.0.0.7/index.js [index.js]
 :::
-
-::: code-group-item index.js
-@[code](../source/v.0.0.7/index.js)
-:::
-::::
 
 这里发现，我们把虚拟节点转化为真实 DOM 的操作给抽离出去了，目的就是通过判断不同的平台下，传入不同的实现逻辑。这样，渲染器的工作范围就不仅仅是我们目前在模拟的浏览器平台了。
 

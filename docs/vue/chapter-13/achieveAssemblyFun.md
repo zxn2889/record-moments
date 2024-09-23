@@ -98,7 +98,7 @@ function mountFunComponent(n2, container, anchor) {
 完整代码如下：
 
 ::: details 详细代码
-@[code](../source/v.0.0.17/index.js)
+<<< ../source/v.0.0.17/index.js
 :::
 
 至这里，我们已经学习了如何实现一个函数式组件，知晓了其内部的结构，以及如何访问具体的变量。揭开了一角神秘面纱。

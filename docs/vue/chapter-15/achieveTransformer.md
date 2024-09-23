@@ -301,15 +301,10 @@ function transformRootJsNode(node, context) {
 
 修整后相关代码如下：
 
-:::: code-group
-::: code-group-item index.js
-@[code](../source/v.0.0.22/index.js)
+::: code-group
+<<< ../source/v.0.0.22/index.js [index.js]
+<<< ../source/v.0.0.22/optimizeParser.js [optimizeParser.js]
+<<< ../source/v.0.0.22/transformer.js [transformer.js]
 :::
-::: code-group-item optimizeParser.js
-@[code](../source/v.0.0.22/optimizeParser.js)
-:::
-::: code-group-item transformer.js
-@[code](../source/v.0.0.22/transformer.js)
-::::
 
 至这里，我们已经学习了如何实现一个 JS AST 树，知道了其中最重要的两个步骤就是：如何设计表达函数的节点结构、及如何通过回调收集的方式拼接 JS AST 树。这其中，也明白了一个道理：就是在实现的过程中，不需要完全拘泥于源码，只要能实现前后的统一及功能的实现，就表明了我们的设计是成功的。而这，也能显著的提高我们的自信心与驱动我们下一次更加卓越的表现。

@@ -232,23 +232,17 @@ function traverseNode(ast, context) {
 
 如上所示，满足一定条件后，通过访问父节点找到要删除的节点，然后把自己再置为空，最后在运行函数结束后再 return 出去，就实现了这段逻辑。代码优化后如下：
 
-:::: code-group
-::: code-group-item index.html
-@[code](../source/v.0.0.21/index.html)
+::: code-group
+<<< ../source/v.0.0.21/index.html [index.html]
+
+<<< ../source/v.0.0.21/index.js [index.js]
+
+<<< ../source/v.0.0.21/parser.js [parser.js]
+
+<<< ../source/v.0.0.21/optimizeParser.js [optimizeParser.js]
+
+<<< ../source/v.0.0.21/dump.js [dump.js]
 :::
-::: code-group-item index.js
-@[code](../source/v.0.0.21/index.js)
-:::
-::: code-group-item parser.js
-@[code](../source/v.0.0.21/parser.js)
-:::
-::: code-group-item optimizeParser.js
-@[code](../source/v.0.0.21/optimizeParser.js)
-:::
-::: code-group-item dump.js
-@[code](../source/v.0.0.21/dump.js)
-:::
-::::
 
 代码中可以看到，删除 AST 节点的方法我抽离了出来，作为了上下文中的内部方法，然后通过暴露上下文的方式，可以让用户自定义的写法能借助访问内部方法的形式，进而方便的改变 AST 树结构。同时，新增了平替 AST 树节点的内部方法，采取了同样的方式。
 

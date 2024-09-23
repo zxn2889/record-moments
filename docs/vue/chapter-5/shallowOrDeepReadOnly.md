@@ -11,27 +11,17 @@ next:
 
 在此之前，先优化了代码，如下：
 
-:::: code-group
-::: code-group-item proxy.js
-@[code](../source/v.0.0.3/proxy.js)
+::: code-group
+<<< ../source/v.0.0.3/proxy.js [proxy.js]
+<<< ../source/v.0.0.3/effect.js [effect.js]
 :::
-
-::: code-group-item effect.js
-@[code](../source/v.0.0.3/effect.js)
-:::
-::::
 
 首先，我们分析一下需求——只读。那只读的目的是什么？只读不改。好，那所有的增删改查动作都要进行判断，并且不需要再进行更新和追踪依赖操作。但是，我们要让用户有感知，知道目前的操作是不合规的，所以要进行提示。代码如下：
 
-:::: code-group
-::: code-group-item index.js
-@[code](../source/v.0.0.4/index.js)
+::: code-group
+<<< ../source/v.0.0.4/index.js [index.js]
+<<< ../source/v.0.0.4/proxy.js [proxy.js]
 :::
-
-::: code-group-item proxy.js
-@[code](../source/v.0.0.4/proxy.js)
-:::
-::::
 
 ![图片](/img/32.png)
 

@@ -165,15 +165,10 @@ function patchProps(key, el, propVal) {
 
 完整代码如下：
 
-:::: code-group
-::: code-group-item index.html
-@[code](../source//v.0.0.10/index.html)
+::: code-group
+<<< ../source//v.0.0.10/index.html [index.html]
+<<< ../source//v.0.0.10/index.js [index.js]
 :::
-
-::: code-group-item index.js
-@[code](../source//v.0.0.10/index.js)
-:::
-::::
 
 ::: tip 注意
 这里我是使用的前面模拟响应式实现的自己封装的插件，虽然没有模拟出向上冒泡过程中父节点触发函数的执行，但是不影响正常使用。如果想要实现文章中提到的效果，请使用 ```vue``` 官方插件。

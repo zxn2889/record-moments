@@ -291,28 +291,14 @@ function patch(n1, n2, container, anchor) {
 
 完整代码如下：
 
-:::: code-group
-::: code-group-item index.html
-@[code](../source/v.0.0.18/index.html)
+::: code-group
+<<< ../source/v.0.0.18/index.html [index.html]
+<<< ../source/v.0.0.18/index.js [index.js]
+<<< ../source/v.0.0.18/renderer.js [renderer.js]
+<<< ../source/v.0.0.18/lifeCycle.js [lifeCycle.js]
+<<< ../source/v.0.0.18/instance.js [instance.js]
+<<< ../source/v.0.0.18/browser.js [browser.js]
+<<< ../source/v.0.0.18/keepAlive.js [keepAlive.js]
 :::
-::: code-group-item index.js
-@[code](../source/v.0.0.18/index.js)
-:::
-::: code-group-item renderer.js
-@[code](../source/v.0.0.18/renderer.js)
-:::
-::: code-group-item lifeCycle.js
-@[code](../source/v.0.0.18/lifeCycle.js)
-:::
-::: code-group-item instance.js
-@[code](../source/v.0.0.18/instance.js)
-:::
-::: code-group-item browser.js
-@[code](../source/v.0.0.18/browser.js)
-:::
-::: code-group-item keepAlive.js
-@[code](../source/v.0.0.18/keepAlive.js)
-:::
-::::
 
 至这里，我们已经学习了如何去实现 keep-alive 的内部原理，知晓了其的设计结构、如何去伪挂载和伪卸载一个内部组件，也明白了当前实例是如何进行这种深度的关联的。至于 keep-alive 是如何变成这种结构的，我们就先不考虑。从整体上看，只要是组件，就和实例脱离不了关系，当然，代码还有优化的空间，只不过不在目前的考虑范围内，相信，会随着学习的更加深入，会逐渐的揭开更多的神秘之地。而我们渲染器的学习也将暂时告一段落，从下一节开始，我们将开始学习编译器的相关知识。诸君共勉。

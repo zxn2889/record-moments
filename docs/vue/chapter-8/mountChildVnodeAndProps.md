@@ -139,8 +139,6 @@ function shouldSetAttr(key, el) {
 
 同样，我们把对应代码抽离后，完整代码如下：
 
-:::: code-group
-::: code-group-item index.js
-@[code](../source/v.0.0.8/index.js)
+::: code-group
+<<< ../source/v.0.0.8/index.js [index.js]
 :::
-::::

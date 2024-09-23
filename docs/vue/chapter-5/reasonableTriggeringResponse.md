@@ -11,23 +11,12 @@ next:
 
 当然，在此之前先做些准备，因为之前的代码看起来有些凌乱和臃肿了，修改后如下：
 
-:::: code-group
-::: code-group-item index.html
-@[code](../source/index.html)
+::: code-group
+<<< ../source/index.html [index.html]
+<<< ../source/v.0.0.0/index.js [index.js]
+<<< ../source/v.0.0.0/proxy.js [proxy.js]
+<<< ../source/v.0.0.0/effect.js [effect.js]
 :::
-
-::: code-group-item index.js
-@[code](../source/v.0.0.0/index.js)
-:::
-
-::: code-group-item proxy.js
-@[code](../source/v.0.0.0/proxy.js)
-:::
-
-::: code-group-item effect.js
-@[code](../source/v.0.0.0/effect.js)
-:::
-::::
 
 好，准备工作都已完毕，让我们接着学习。抛出问题：
 1. 新值与旧值相同时怎么办？
@@ -164,20 +153,9 @@ const handler = {
 
 最后，完整代码如下：
 
-:::: code-group
-::: code-group-item index.html
-@[code](../source/index.html)
+::: code-group
+<<< ../source/index.html [index.html]
+<<< ../source/v.0.0.1/index.js [index.js]
+<<< ../source/v.0.0.1/proxy.js [proxy.js]
+<<< ../source/v.0.0.1/effect.js [effect.js]
 :::
-
-::: code-group-item index.js
-@[code](../source/v.0.0.1/index.js)
-:::
-
-::: code-group-item proxy.js
-@[code](../source/v.0.0.1/proxy.js)
-:::
-
-::: code-group-item effect.js
-@[code](../source/v.0.0.1/effect.js)
-:::
-::::

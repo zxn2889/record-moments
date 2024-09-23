@@ -114,7 +114,7 @@ function mountComponent(n2, container, anchor) {
 完整代码如下：
 
 ::: details 详细代码
-@[code](../source/v.0.0.16/02.index.js)
+<<< ../source/v.0.0.16/02.index.js
 :::
 
 至这里，我们已经学习了 setup 的内部实现原理，知晓了其参数的由来，也了解了其返回值为函数或者对象时的不同处理方式，也明白了为什么可以通过 this 访问到组件内部的状态、方法等，也知晓了组件上下文的含义。揭开了 setup 的神秘面纱。

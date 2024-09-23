@@ -147,10 +147,6 @@ function patch(_o_vnode, vnode, container) {
 
 完整代码如下：
 
-:::: code-group
-::: code-group-item index.js
-@[code](../source/v.0.0.9/index.js)
-:::
-::::
+<<< ../source/v.0.0.9/index.js [index.js]
 
 至这里，我们已经学习了卸载的几种情况，分别是当更新节点为空时的直接卸载，和更新节点与旧节点不一致情况的几种判断。了解了如何将 vnode 与 真实 DOM 如何关联、unmount 钩子的基本形态、如何根据不同的 vnode 节点类型做不同的判断等。明白了大致的内部逻辑，知晓了挂载是打补丁的特殊情况，掀开了卸载与更新的一角。接下来我们将继续学习挂载与更新内部的事件逻辑。

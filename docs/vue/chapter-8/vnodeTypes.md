@@ -135,8 +135,4 @@ function unmount(vnode) {
 
 完整代码如下：
 
-:::: code-group
-::: code-group-item index.js
-@[code](../source/v.0.0.12/index.js)
-:::
-::::
+<<< ../source/v.0.0.12/index.js [index.js]

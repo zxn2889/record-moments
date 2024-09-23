@@ -92,10 +92,6 @@ function patchChild(n1, n2, container) {
 
 完整代码如下：
 
-:::: code-group
-::: code-group-item index.js
-@[code](../source/v.0.0.11/index.js)
-:::
-::::
+<<< ../source/v.0.0.11/index.js [index.js]
 
 至这里，我们已经学习了子节点比较的基本逻辑，分别是比较前后子节点的 props 和 children 属性的不同，它们分别分为了几种情况。其中，对于 children 的处理，要辨别更新前后的类型是否是数组，如果是则先卸载，然后再挂载；其他则是直接设置文本内容就好。

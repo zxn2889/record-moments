@@ -134,16 +134,8 @@ function nProxy(data) {
 
 到了这里，我们深响应、浅响应都已经实现了，但还不够优雅，也不符合单一功能模式，所以优化后最终代码如下：
 
-:::: code-group
-::: code-group-item index.js
-@[code](../source/v.0.0.2/index.js)
+::: code-group
+<<< ../source/v.0.0.2/index.js [index.js]
+<<< ../source/v.0.0.2/proxy.js [proxy.js]
+<<< ../source/v.0.0.2/effect.js [effect.js]
 :::
-
-::: code-group-item proxy.js
-@[code](../source/v.0.0.2/proxy.js)
-:::
-
-::: code-group-item effect.js
-@[code](../source/v.0.0.2/effect.js)
-:::
-::::

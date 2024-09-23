@@ -115,7 +115,7 @@ AST 也称为抽象语法树。
 这样的每一个节点称为 Token，意为词法记号，一组这样的节点称为 Tokens。实现如下：
 
 ::: details 详细代码
-@[code](../source/v.0.0.19/index.js)
+<<< ../source/v.0.0.19/index.js
 :::
 
 最终会得到如下结果：
