@@ -3,7 +3,7 @@ import sidebarVue from './sidebarVue'
 import sidebarGuide from './sidebarGuide'
 
 export default defineConfig({
-    // base: '/record-moments/',
+    base: '/record-moments/',
     lang: 'zh-CN',
     title: '火箭吧！',
     description: '越记录，越美好！',
