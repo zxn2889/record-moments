@@ -1,4 +1,5 @@
-import { defineConfig, type DefaultTheme } from 'vitepress'
+import { defineConfig } from 'vitepress'
+import nav from './nav'
 import sidebarVue from './sidebarVue'
 import sidebarGuide from './sidebarGuide'
 
@@ -45,7 +46,8 @@ export default defineConfig({
             next: '下一页'
         },
         outline: {
-            label: '页面导航'
+            label: '页面导航',
+            level: [2, 5]
         },
         lastUpdated: {
             text: '最后更新于',
@@ -67,18 +69,5 @@ export default defineConfig({
     },
 })
 
-function nav(): DefaultTheme.NavItem[] {
-    return [
-        {
-            text: '指南',
-            link: '/guide/husky',
-            activeMatch: '/guide/'
-        },
-        {
-            text: 'VUE原理',
-            link: '/vue/chapter-4/proxyAchieve',
-            activeMatch: '/vue/'
-        }
-    ]
-}
+
 

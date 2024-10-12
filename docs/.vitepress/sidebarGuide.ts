@@ -5,8 +5,10 @@ function sidebarGuide(): DefaultTheme.SidebarItem[] {
         {
             text: '指南',
             collapsed: false,
-            items: [
-                { text: '实现 .husky', link: '/guide/husky' }
+            items: 
+            [
+                { text: '实现 .husky', link: '/guide/husky' },
+                { text: 'Github Action', link: '/guide/githubAction' }
             ]
         }
     ]
