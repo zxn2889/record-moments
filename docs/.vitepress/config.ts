@@ -1,7 +1,6 @@
 import { defineConfig } from 'vitepress'
 import nav from './nav'
-import sidebarVue from './sidebarVue'
-import sidebarGuide from './sidebarGuide'
+import sidebar from './sidebar'
 
 export default defineConfig({
     base: '/record-moments/',
@@ -62,10 +61,7 @@ export default defineConfig({
         lightModeSwitchTitle: '切换到浅色模式',
         darkModeSwitchTitle: '切换到深色模式',
         nav: nav(),
-        sidebar: {
-            '/guide/': sidebarGuide(),
-            '/vue/': sidebarVue()
-        }
+        sidebar: sidebar()
     },
 })
 

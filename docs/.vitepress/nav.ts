@@ -9,7 +9,7 @@ export default function nav(): DefaultTheme.NavItem[] {
         },
         {
             text: 'VUE原理',
-            link: '/vue/chapter-4/proxyAchieve',
+            link: '/vue/4-第四章/proxyAchieve',
             activeMatch: '/vue/'
         }
     ]

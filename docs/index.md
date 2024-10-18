@@ -12,6 +12,6 @@ hero:
           link: /guide/husky
         - theme: alt
           text: VUE源码
-          link: /vue/chapter-4/proxyAchieve
+          link: /vue/4-第四章/proxyAchieve
     image: /img/vitepress-logo-large.webp
 ---
